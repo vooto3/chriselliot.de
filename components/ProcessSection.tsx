@@ -99,10 +99,10 @@ const ProcessSection = ({
   titleColor = "#111827",
   subtitleColor = "#6b7280",
   stepCardBackground = "#ffffff",
-  stepNumberColor = "#10b981",
+  stepNumberColor = "#ef4444",
   stepTitleColor = "#111827",
   stepDescriptionColor = "#6b7280",
-  ctaBackgroundColor = "#10b981",
+  ctaBackgroundColor = "#ef4444",
   ctaTextColor = "#ffffff",
   
   // Layout & Spacing

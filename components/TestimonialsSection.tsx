@@ -102,7 +102,7 @@ const TestimonialsSection = ({
   cardBackgroundColor = "#f9fafb",
   cardBorderColor = "#e5e7eb",
   nameColor = "#111827",
-  roleColor = "#10b981", 
+  roleColor = "#ef4444", 
   contentColor = "#4b5563",
   starColor = "#fbbf24",
   

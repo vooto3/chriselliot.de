@@ -115,14 +115,14 @@ if (typeof window !== 'undefined') {
           defaultValue: '/dubai-beach.jpg',
           displayName: 'Background Image'
         },
-        overlayOpacity: {
-          type: 'number',
-          defaultValue: 0.7,
-          min: 0,
-          max: 1,
-          step: 0.1,
-          displayName: 'Background Overlay Opacity'
-        },
+                 overlayOpacity: {
+           type: 'number',
+           defaultValue: 0.3,
+           min: 0,
+           max: 1,
+           step: 0.1,
+           displayName: 'Background Overlay Opacity'
+         },
         
         // Typography Colors
         headingColor: {
@@ -130,33 +130,33 @@ if (typeof window !== 'undefined') {
           defaultValue: '#ffffff',
           displayName: 'Heading Color'
         },
-        highlightColor: {
-          type: 'color',
-          defaultValue: '#10b981',
-          displayName: 'Highlight Color'
-        },
+                 highlightColor: {
+           type: 'color',
+           defaultValue: '#ef4444',
+           displayName: 'Highlight Color'
+         },
         subheadingColor: {
           type: 'color',
           defaultValue: '#d1d5db',
           displayName: 'Subheading Color'
         },
         
-        // Button Styling
-        buttonBackgroundColor: {
-          type: 'color',
-          defaultValue: '#10b981',
-          displayName: 'Button Background'
-        },
+                 // Button Styling
+         buttonBackgroundColor: {
+           type: 'color',
+           defaultValue: '#ef4444',
+           displayName: 'Button Background'
+         },
         buttonTextColor: {
           type: 'color',
           defaultValue: '#ffffff',
           displayName: 'Button Text Color'
         },
-        buttonHoverColor: {
-          type: 'color',
-          defaultValue: '#059669',
-          displayName: 'Button Hover Color'
-        },
+                 buttonHoverColor: {
+           type: 'color',
+           defaultValue: '#dc2626',
+           displayName: 'Button Hover Color'
+         },
         
         // Layout & Spacing
         minHeight: {
@@ -345,11 +345,11 @@ if (typeof window !== 'undefined') {
           defaultValue: '#ffffff',
           displayName: 'Step Card Background'
         },
-        stepNumberColor: {
-          type: 'color',
-          defaultValue: '#10b981',
-          displayName: 'Step Number Color'
-        },
+                 stepNumberColor: {
+           type: 'color',
+           defaultValue: '#ef4444',
+           displayName: 'Step Number Color'
+         },
         stepTitleColor: {
           type: 'color',
           defaultValue: '#111827',
@@ -360,11 +360,11 @@ if (typeof window !== 'undefined') {
           defaultValue: '#6b7280',
           displayName: 'Step Description Color'
         },
-        ctaBackgroundColor: {
-          type: 'color',
-          defaultValue: '#10b981',
-          displayName: 'CTA Background Color'
-        },
+                 ctaBackgroundColor: {
+           type: 'color',
+           defaultValue: '#ef4444',
+           displayName: 'CTA Background Color'
+         },
         ctaTextColor: {
           type: 'color',
           defaultValue: '#ffffff',
@@ -585,11 +585,11 @@ if (typeof window !== 'undefined') {
           defaultValue: '#111827',
           displayName: 'Name Color'
         },
-        roleColor: {
-          type: 'color',
-          defaultValue: '#10b981',
-          displayName: 'Role Color'
-        },
+                 roleColor: {
+           type: 'color',
+           defaultValue: '#ef4444',
+           displayName: 'Role Color'
+         },
         contentColor: {
           type: 'color',
           defaultValue: '#4b5563',
@@ -695,26 +695,26 @@ if (typeof window !== 'undefined') {
           defaultValue: '#374151',
           displayName: 'Link Text Color'
         },
-        linkHoverColor: {
-          type: 'color',
-          defaultValue: '#10b981',
-          displayName: 'Link Hover Color'
-        },
-        getStartedButtonBackground: {
-          type: 'color',
-          defaultValue: '#10b981',
-          displayName: 'Get Started Button Background'
-        },
+                 linkHoverColor: {
+           type: 'color',
+           defaultValue: '#ef4444',
+           displayName: 'Link Hover Color'
+         },
+         getStartedButtonBackground: {
+           type: 'color',
+           defaultValue: '#ef4444',
+           displayName: 'Get Started Button Background'
+         },
                  getStartedButtonTextColor: {
            type: 'color',
            defaultValue: '#ffffff',
            displayName: 'Get Started Button Text Color'
          },
-        getStartedButtonHover: {
-          type: 'color',
-          defaultValue: '#059669',
-          displayName: 'Get Started Button Hover'
-        },
+                 getStartedButtonHover: {
+           type: 'color',
+           defaultValue: '#dc2626',
+           displayName: 'Get Started Button Hover'
+         },
         aboutButtonBackground: {
           type: 'color',
           defaultValue: 'transparent',
@@ -1059,11 +1059,11 @@ if (typeof window !== 'undefined') {
           defaultValue: '#d1d5db',
           displayName: 'Link Color'
         },
-        linkHoverColor: {
-          type: 'color',
-          defaultValue: '#10b981',
-          displayName: 'Link Hover Color'
-        },
+                 linkHoverColor: {
+           type: 'color',
+           defaultValue: '#ef4444',
+           displayName: 'Link Hover Color'
+         },
         borderColor: {
           type: 'color',
           defaultValue: '#374151',
@@ -1074,11 +1074,11 @@ if (typeof window !== 'undefined') {
           defaultValue: '#9ca3af',
           displayName: 'Social Icon Color'
         },
-        socialIconHoverColor: {
-          type: 'color',
-          defaultValue: '#10b981',
-          displayName: 'Social Icon Hover Color'
-        },
+                 socialIconHoverColor: {
+           type: 'color',
+           defaultValue: '#ef4444',
+           displayName: 'Social Icon Hover Color'
+         },
         
         // Layout & Spacing
         footerPadding: {

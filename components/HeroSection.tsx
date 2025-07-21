@@ -75,17 +75,17 @@ const HeroSection = ({
   
   // Visual Design
   backgroundImage = "/dubai-beach.jpg",
-  overlayOpacity = 0.7,
+  overlayOpacity = 0.3,
   
   // Typography Colors
   headingColor = "#ffffff",
-  highlightColor = "#10b981",
+  highlightColor = "#ef4444",
   subheadingColor = "#d1d5db",
   
   // Button Styling
-  buttonBackgroundColor = "#10b981",
+  buttonBackgroundColor = "#ef4444",
   buttonTextColor = "#ffffff",
-  buttonHoverColor = "#059669",
+  buttonHoverColor = "#dc2626",
   
   // Layout & Spacing
   minHeight = "600px",
