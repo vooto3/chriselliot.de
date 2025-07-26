@@ -52,7 +52,17 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
     // Allow touch events within the modal content
     e.stopPropagation()
   }
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
 
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+  
   return (
     <div 
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
@@ -84,8 +94,11 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
 
         {/* Modal Content */}
         <div className="h-[calc(100%-80px)] overflow-auto touch-pan-y pb-4 md:pb-0">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/chriselliott_/chriselliott" style="min-width:320px;height:700px;"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <div
+            className="calendly-inline-widget"
+            data-url="https://calendly.com/chriselliott_/chriselliott"
+            style={{ minWidth: '320px', height: '700px' }}
+          ></div>
           {/* Mobile bottom spacing */}
           <div className="h-4 md:hidden"></div>
         </div>
