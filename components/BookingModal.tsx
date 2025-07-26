@@ -84,17 +84,8 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
 
         {/* Modal Content */}
         <div className="h-[calc(100%-80px)] overflow-auto touch-pan-y pb-4 md:pb-0">
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/booking/mBnEimwaVAYwcagtDdbu"
-            className="w-full border-0"
-            title="Book Your Consultation"
-            loading="lazy"
-            style={{ 
-              height: 'calc(100% - 1rem)',
-              minHeight: 'calc(100% - 1rem)',
-              WebkitOverflowScrolling: 'touch'
-            }}
-          />
+          <div class="calendly-inline-widget" data-url="https://calendly.com/chriselliott_/chriselliott" style="min-width:320px;height:700px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
           {/* Mobile bottom spacing */}
           <div className="h-4 md:hidden"></div>
         </div>
