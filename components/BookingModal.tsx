@@ -8,50 +8,14 @@ interface BookingModalProps {
   onClose: () => void
 }
 
+declare global {
+  interface Window {
+    Calendly?: any;
+  }
+}
+
 const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose()
-      }
-    }
-
-    const preventBodyScroll = (e: TouchEvent) => {
-      e.preventDefault()
-    }
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'hidden'
-      document.body.style.position = 'fixed'
-      document.body.style.width = '100%'
-      document.body.style.height = '100%'
-      // Prevent background scrolling on mobile
-      document.addEventListener('touchmove', preventBodyScroll, { passive: false })
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape)
-      document.removeEventListener('touchmove', preventBodyScroll)
-      document.body.style.overflow = 'unset'
-      document.body.style.position = 'unset'
-      document.body.style.width = 'unset'
-      document.body.style.height = 'unset'
-    }
-  }, [isOpen, onClose])
-
-  if (!isOpen) return null
-
-  const handleBackdropClick = (e: React.MouseEvent | React.TouchEvent) => {
-    if (e.target === e.currentTarget) {
-      onClose()
-    }
-  }
-
-  const handleModalContentTouch = (e: React.TouchEvent) => {
-    // Allow touch events within the modal content
-    e.stopPropagation()
-  }
+  // Calendly script effect - MUST run on every render
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
@@ -62,7 +26,50 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
       document.body.removeChild(script);
     };
   }, []);
-  
+
+  // Modal behavior effect
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      if (window.Calendly) {
+        window.Calendly.initInlineWidget({
+          url: 'https://calendly.com/chriselliott_/chriselliott',
+          parentElement: document.getElementById('calendly-container')!,
+          prefill: {},
+          utm: {}
+        });
+      }
+    };
+
+    return () => {
+      document.body.removeChild(script);
+      const container = document.getElementById('calendly-container');
+      if (container) {
+        container.innerHTML = ''; // Clean up
+      }
+    };
+  }, [isOpen]);
+
+
+  //Hooks must be above conditional return
+  if (!isOpen) return null;
+
+  const handleBackdropClick = (e: React.MouseEvent | React.TouchEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose()
+    }
+  }
+
+  const handleModalContentTouch = (e: React.TouchEvent) => {
+    e.stopPropagation()
+  }
+
   return (
     <div 
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
@@ -77,7 +84,6 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
         }}
         onTouchMove={handleModalContentTouch}
       >
-        {/* Modal Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-red-50 to-primary-50">
           <div>
             <h2 className="text-2xl font-bold text-gray-900">Book Your Consultation</h2>
@@ -92,14 +98,11 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
           </button>
         </div>
 
-        {/* Modal Content */}
         <div className="h-[calc(100%-80px)] overflow-auto touch-pan-y pb-4 md:pb-0">
           <div
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/chriselliott_/chriselliott"
-            style={{ minWidth: '320px', height: '700px' }}
-          ></div>
-          {/* Mobile bottom spacing */}
+              id="calendly-container"
+              style={{ minWidth: '420px', height: '700px' }}
+            ></div>
           <div className="h-4 md:hidden"></div>
         </div>
       </div>
@@ -107,4 +110,4 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
   )
 }
 
-export default BookingModal 
+export default BookingModal
