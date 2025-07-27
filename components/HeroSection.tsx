@@ -166,9 +166,7 @@ const HeroSection = ({
     >
       {/* Background Overlay */}
       <div 
-        className="absolute inset-0" 
-        style={{ backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})` }}
-      ></div>
+        className="absolute inset-0" ></div>
       
       {/* Content Container */}
       <div className="relative z-10 w-full">
