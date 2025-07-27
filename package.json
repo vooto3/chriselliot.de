@@ -10,6 +10,8 @@
     "deploy:vercel": "vercel --prod",
     "deploy:netlify": "netlify deploy --prod",
     "build:production": "npm run build && npm run start"
+    "plasmic:sync": "plasmic sync",
+    "build": "npm run plasmic:sync && next build"
   },
   "dependencies": {
     "@plasmicapp/auth-api": "^0.0.17",
