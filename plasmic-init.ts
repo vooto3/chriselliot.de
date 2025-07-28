@@ -362,12 +362,12 @@ if (typeof window !== 'undefined') {
         },
                  ctaBackgroundColor: {
            type: 'color',
-           defaultValue: '#ef4444',
+           defaultValue: '#ffffff',
            displayName: 'CTA Background Color'
          },
         ctaTextColor: {
           type: 'color',
-          defaultValue: '#ffffff',
+          defaultValue: '#111827',
           displayName: 'CTA Text Color'
         },
         
