@@ -7,12 +7,15 @@ interface HeroSectionProps {
   mainHeading?: string
   highlightText1?: string
   highlightText2?: string
+  highlightText3?: string
   subHeading?: string
   
   // Pricing - Fully Editable
   originalPrice?: string
   currentPrice?: string
   savingsText?: string
+  previouslyLabel?: string // New prop
+  nowAvailableLabel?: string // New prop
   
   // Button & CTA
   buttonText?: string
@@ -37,6 +40,14 @@ interface HeroSectionProps {
   buttonBackgroundColor?: string
   buttonTextColor?: string
   buttonHoverColor?: string
+
+  // Business Solution Section
+  businessSolutionTitle?: string
+  businessSolutionFeatures?: string[]
+  businessSolutionButtonLabel?: string
+  businessSolutionCurrentPrice?: string
+  businessSolutionOriginalPrice?: string
+  businessSolutionSetupFeeLabel?: string
   
   // Layout & Spacing
   minHeight?: string
@@ -56,12 +67,15 @@ const HeroSection = ({
   mainHeading = "What if I told you that you could",
   highlightText1 = "live anywhere in the world",
   highlightText2 = "pay 0% tax",
+  highlightText3 = "invoice clients globally, and connect seamlessly via Stripe?",
   subHeading = "Don't miss this exclusive offer. Avail the opportunity to live anywhere in the world.",
   
   // Pricing
   originalPrice = "$11,980",
   currentPrice = "$9,800",
   savingsText = "Save $2,180",
+  previouslyLabel = "Previously", // Default value
+  nowAvailableLabel = "Now available for just", // Default value
   
   // Button & CTA
   buttonText = "Get Started Today - Save $2,180",
@@ -86,6 +100,21 @@ const HeroSection = ({
   buttonBackgroundColor = "#ef4444",
   buttonTextColor = "#ffffff",
   buttonHoverColor = "#dc2626",
+
+  // Business Solution Section
+  businessSolutionTitle = "Complete Business Solution",
+  businessSolutionFeatures = [
+    "Receive a two-year residency in Dubai",
+    "Get your business license with current or new business name",
+    "Personal & business banking setup",
+    "Multi-Currency IBAN Accounts (USD, EUR, GBP & more)",
+    "Global Client Invoicing (Bill in several currencies, get paid easily)",
+    "Seamless Stripe integration"
+  ],
+  businessSolutionButtonLabel = "Start Your Journey",
+  businessSolutionCurrentPrice = "$9,800",
+  businessSolutionOriginalPrice = "$11,980",
+  businessSolutionSetupFeeLabel = "One-time setup fee",
   
   // Layout & Spacing
   minHeight = "600px",
@@ -166,31 +195,29 @@ const HeroSection = ({
     >
       {/* Background Overlay */}
       <div 
-        className="absolute inset-0" 
-        style={{ backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})` }}
-      ></div>
-      
+        className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-transparent"></div>
+      <div 
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60"></div>
+
       {/* Content Container */}
       <div className="relative z-10 w-full">
-        <div className="w-full px-4 sm:px-6 lg:px-8" style={{ maxWidth: containerMaxWidth, margin: '0 auto' }}>
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight" style={{ color: headingColor }}>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg" style={{ color: headingColor }}>
               {mainHeading}{' '}
-              <span style={{ color: highlightColor }}>{highlightText1}</span>{' '}
-              and <span style={{ color: highlightColor }}>{highlightText2}</span>
+              <span style={{ color: highlightColor }}>{highlightText1}</span>{''}
+              , <span style={{ color: highlightColor }}>{highlightText2}</span>{''}
+              , {highlightText3}
             </h1>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold line-through" style={{ color: subheadingColor }}>
-                  {originalPrice}
+                <span className="text-2xl font-bold line-through" style={{ color: highlightColor }}>
+                  {previouslyLabel} {originalPrice}
                 </span>
               </div>
               <div className="text-3xl md:text-4xl font-bold" style={{ color: highlightColor }}>
-                {currentPrice}
-              </div>
-              <div className="font-semibold" style={{ color: highlightColor }}>
-                {savingsText}
+                {nowAvailableLabel} {currentPrice}! {savingsText}
               </div>
             </div>
 
@@ -247,42 +274,44 @@ const HeroSection = ({
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-white/20"
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up"
               >
                 <div className="flex items-center mb-4">
                   <feature.icon 
                     className="w-8 h-8 mr-3" 
                     style={{ color: highlightColor }}
                   />
-                  <h3 className="font-semibold" style={{ color: headingColor }}>{feature.text}</h3>
+                  <h3 className="font-semibold text-gray-900">{feature.text}</h3>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20 w-full">
-            <div className="text-center">
-              <div className="mb-6">
-                <div className="text-6xl font-bold mb-2" style={{ color: highlightColor }}>{currentPrice}</div>
-                <div className="mb-4" style={{ color: subheadingColor }}>One-time setup fee</div>
-                <div className="text-sm line-through mb-6" style={{ color: subheadingColor }}>Previously {originalPrice}</div>
-                <div className="mb-6" style={{ color: highlightColor }}>{savingsText}</div>
-                <button 
-                  onClick={handleGetStartedClick}
-                  className="w-full px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                  style={{ 
-                    backgroundColor: buttonBackgroundColor,
-                    color: buttonTextColor
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = buttonHoverColor
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = buttonBackgroundColor
-                  }}
-                >
-                  {buttonText}
-                </button>
+          <div className="bg-white rounded-2xl p-8 shadow-2xl border border-gray-100 w-full">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">{businessSolutionTitle}</h2>
+                <ul className="space-y-3">
+                  {businessSolutionFeatures.map((feature, idx) => (
+                    <li key={idx} className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="text-center">
+                <div className="bg-gradient-to-br from-red-50 to-primary-50 rounded-xl p-8">
+                  <div className="text-6xl font-bold gradient-text mb-2">{businessSolutionCurrentPrice}</div>
+                  <div className="text-gray-600 mb-4">{businessSolutionSetupFeeLabel}</div>
+                  <div className="text-sm text-gray-500 line-through mb-6">Previously {businessSolutionOriginalPrice}</div>
+                  <button
+                    onClick={handleGetStartedClick}
+                    className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                  >
+                    {businessSolutionButtonLabel}
+                  </button>
+                </div>
               </div>
             </div>
           </div>

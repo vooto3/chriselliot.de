@@ -16,7 +16,7 @@
     "@plasmicapp/loader-nextjs": "^1.0.433",
     "@plasmicapp/react-web": "^0.2.394",
     "lucide-react": "^0.294.0",
-    "next": "14.0.4",
+    "next": "^14.2.30",
     "react": "^18",
     "react-dom": "^18"
   },

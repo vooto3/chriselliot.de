@@ -97,6 +97,44 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+/* CTA Section Custom Styles */
+.cta-section-bg {
+  background-color: #fff !important;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 32px 0 rgba(0,0,0,0.08), 0 1.5px 4px 0 rgba(0,0,0,0.03);
+  border: 1px solid #f3f4f6;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-section-title {
+  color: #111827 !important;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.cta-section-subtext {
+  color: #111827 !important;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+.cta-section-btn {
+  background-color: #ef4444 !important;
+  color: #fff !important;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.cta-section-btn:hover {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.15);
+  transform: scale(1.05);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

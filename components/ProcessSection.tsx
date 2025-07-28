@@ -50,8 +50,10 @@ interface ProcessSectionProps {
   stepNumberColor?: string
   stepTitleColor?: string
   stepDescriptionColor?: string
-  ctaBackgroundColor?: string
-  ctaTextColor?: string
+  ctaBackgroundColor1?: string
+  ctaTextColor1?: string
+  ctaBtnBackground?: string
+  ctaButtonColor?: string
   
   // Layout & Spacing
   sectionPadding?: string
@@ -102,9 +104,10 @@ const ProcessSection = ({
   stepNumberColor = "#ef4444",
   stepTitleColor = "#111827",
   stepDescriptionColor = "#6b7280",
-  ctaBackgroundColor = "#ef4444",
-  ctaTextColor = "#ffffff",
-  
+  ctaBackgroundColor1 = "#ffffff",
+  ctaTextColor1 = "#111827",
+  ctaBtnBackground = "#ef4444",
+  ctaButtonColor = "#ffffff",
   // Layout & Spacing
   sectionPadding = "5rem 0",
   cardSpacing = "2rem",
@@ -208,7 +211,7 @@ const ProcessSection = ({
               <div className="mb-6">
                 <div 
                   className="w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                  style={{ backgroundColor: stepNumberColor + '10' }}
+                  style={{ backgroundColor: stepNumberColor + '20' }}
                 >
                   <step.icon className="w-8 h-8" style={{ color: stepNumberColor }} />
                 </div>
@@ -233,16 +236,13 @@ const ProcessSection = ({
 
         <div className="mt-16 text-center">
           <div 
-            className="rounded-2xl p-8 shadow-xl max-w-2xl mx-auto"
-            style={{ 
-              backgroundColor: ctaBackgroundColor,
-              border: `1px solid ${ctaTextColor}20`
-            }}
+            className="rounded-2xl p-8 shadow-xl border border-gray-100 max-w-2xl mx-auto"
+            style={{ backgroundColor: ctaBackgroundColor1 }}
           >
-            <h3 className="text-2xl font-bold mb-4" style={{ color: ctaTextColor }}>
+            <h3 className="text-2xl font-bold mb-4" style={{ color: ctaTextColor1 }}>
               {ctaHeading}
             </h3>
-            <p className="mb-6" style={{ color: ctaTextColor, opacity: 0.9 }}>
+            <p className="mb-6" style={{ color: ctaTextColor1, opacity: 0.9 }}>
               {ctaSubtext}
             </p>
             <button 
@@ -254,10 +254,7 @@ const ProcessSection = ({
                 }
               }}
               className="px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-              style={{ 
-                backgroundColor: ctaTextColor,
-                color: ctaBackgroundColor
-              }}
+              style={{ backgroundColor: ctaBtnBackground, color: ctaButtonColor }}
             >
               {ctaButtonText}
             </button>
